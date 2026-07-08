@@ -39,3 +39,46 @@ Time complexity: worst cast you'd have to go through each of the M elements in t
 Space complexity: we only use a few constant-sized array index pointers, so O(1).
 */
 
+function findIdx(arr, target) {
+  // isBefore: trivial
+
+  // edge cases
+  // by constraints, we're guaranteed that arr.length >=1, so there is a range
+  if (target < arr[0]) return null;
+  if (target > arr[arr.length-1]) return null;
+
+  // set l and r to beginning and end indices of array
+  let l = 0;
+  let r = arr.length - 1;
+
+  let mid;
+  while (r - l > 1) {
+    mid = Math.floor((r + l) / 2);
+    if (arr[mid] > target) {
+      r = mid;
+    } else {
+      l = mid;
+    }
+  }
+  if (target == arr[l]) {
+    return l;
+  } else {
+    if (target == arr[r]) {
+      return r;
+    } else {
+      return null;
+    }
+  }
+}
+
+function twoArrayTwoSum(sArr, uArr) {
+  let compIdx = null;
+  for (let ui = 0; ui < uArr.length; ui++) {
+    compIdx = findIdx(sArr, uArr[ui] * -1);
+    if (compIdx !== null) {
+      return [compIdx, ui];
+    }
+  }
+  return [-1, -1];
+}
+
