@@ -82,3 +82,49 @@ function twoArrayTwoSum(sArr, uArr) {
   return [-1, -1];
 }
 
+// Example 1:
+let sorted_arr = [-5, -4, -1, 4, 6, 6, 7];
+let unsorted_arr = [-3, 7, 18, 4, 6];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [1, 3]
+// Explanation: We can use -4 from the sorted array and 4 from the unsorted array.
+
+// Example 2:
+sorted_arr = [1, 2, 3];
+unsorted_arr = [1, 2, 3];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [-1, -1]
+// Explanation: No pair of elements sums to 0.
+
+// Example 3:
+sorted_arr = [-2, 0, 1, 2];
+unsorted_arr = [0, 2, -2, 4];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [0, 1]
+// Explanation: We can use -2 from the sorted array and 2 from the unsorted array.
+
+sorted_arr = [2];
+unsorted_arr = [0, 2, -2, 4];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [0, 2]
+
+sorted_arr = [-2, 0, 1, 2];
+unsorted_arr = [-1];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [2, 0]
+
+sorted_arr = [-1];
+unsorted_arr = [1];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [0, 0]
+
+sorted_arr = [3];
+unsorted_arr = [2];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [-1, -1]
+
+sorted_arr = [1, 2, 3];
+unsorted_arr = [3, 2, 1];
+console.log(twoArrayTwoSum(sorted_arr, unsorted_arr));
+// Output: [-1, -1]
+
