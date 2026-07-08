@@ -33,3 +33,9 @@ Approach:
 For each item in the unsorted array, do a binary search on its 0-complement in the sorted array.
 */
 
+/*
+Complexity:
+Time complexity: worst cast you'd have to go through each of the M elements in the unsorted array, and do a log N binary search on the sorted array, so O(M * log N).
+Space complexity: we only use a few constant-sized array index pointers, so O(1).
+*/
+
