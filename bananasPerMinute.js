@@ -51,3 +51,15 @@
 // - `1 <= bananas.length <= 10^5`
 // - `1 <= m <= 10^8`
 // - `1 <= bananas[i] <= 10^8`
+
+/*
+Approach:
+This is a binary search / transition problem. 
+We're trying to find the transition point between the number of bananas per minute the monkey
+will eat where the time taken to eat is greater than m minutes (i.e. they'll get caught), and
+the number of bananas per minute the monkey will eat so that they'll eat all the bananas in less
+than m minutes (and not get caught).  The lower bound of this is 1 banana per minute, in which case
+they'll eat them in n minutes.  The upper bound is max(bananas[i]) per minute, since they have to
+spend at least one minute on each box.
+*/
+
