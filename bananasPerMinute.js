@@ -102,6 +102,14 @@ function bananasPerMinute(bananas, m) {
   return r;
 }
 
+/*
+Time complexity:
+We are doing a binary search on the range 1..M, where M is the maximum number of bananas in a box.  This is O(log M).
+For each number tested, we are summing up the minutes taken for all n boxes O(N), so overall time complexity is O(N log M).
+Space complexity:
+For space complexity, the only extra space we're using is constant-space tracking variables, so space complexity is O(1).
+*/
+
 // Example 1:
 let bananas = [5, 8, 12];
 let m = 6;
