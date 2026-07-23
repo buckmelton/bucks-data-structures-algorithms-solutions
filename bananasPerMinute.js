@@ -102,3 +102,28 @@ function bananasPerMinute(bananas, m) {
   return r;
 }
 
+// Example 1:
+let bananas = [5, 8, 12];
+let m = 6;
+
+console.log(bananasPerMinute(bananas, m));
+
+// Example 2:
+bananas = [15, 5, 10, 20];
+m = 7;
+console.log(bananasPerMinute(bananas, m));
+
+
+// Example 3:
+bananas = [8, 16, 24];
+m = 3;
+console.log(bananasPerMinute(bananas, m));
+
+// Example 4:
+// Impossible for monkey to eat all bananas before being caught,
+// because there are more boxes than minutes
+bananas = [8, 16, 24, 32];
+m = 3;
+console.log(bananasPerMinute(bananas, m));
+
+
