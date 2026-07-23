@@ -63,3 +63,42 @@ they'll eat them in n minutes.  The upper bound is max(bananas[i]) per minute, s
 spend at least one minute on each box.
 */
 
+/* Use a generalized binary search recipe based on a transition-point invariant.
+Instead of searching for a specific value, I define a boolean predicate, is_before(), to split the search space
+into a continuous sequence of True values followed by False values.
+By keeping the search range strictly bounded between a known True pointer and a known False pointer, I completely
+eliminate off-by-one errors and infinite loops, allowing me to solve any binary search variation with the exact same layout.
+*/
+
+function bananasPerMinute(bananas, m) {
+
+  function isBefore(bpm) {
+    let totMinutes = 0;
+    for (let i = 0; i < bananas.length; i++) {
+      totMinutes += Math.ceil(bananas[i] / bpm);
+    }
+    console.log('bpm, totMinute: ', bpm, totMinutes);
+    return totMinutes > m;
+  }
+
+  const totBananas = bananas.reduce((acc, cur) => acc + cur, 0);
+  const maxBananas = Math.max(...bananas);
+
+  // If there are more boxes than minutes available, the monkey can't possibly
+  // get through all of them, return error.
+  if (bananas.length > m) return -1;
+  // The monkey can eat one banana per minute and still not get caught
+  if (totBananas < m) return 1;
+  let l = 1;
+  let r = maxBananas;
+  while (r - 1 > l) {
+    let mid = Math.floor((l + r) / 2);
+    if (isBefore(mid)) {
+      l = mid;
+    } else {
+      r = mid;
+    }
+  }
+  return r;
+}
+
